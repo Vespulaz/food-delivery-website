@@ -1,14 +1,17 @@
-﻿.navbar {
+﻿/*Overall navigation bar*/
+.navbar {
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/*Logo*/
 .navbar .logo {
     width: 150px;
 }
 
+/*Menu bar*/
 .navbar-menu {
     display: flex;
     list-style: none;
@@ -17,12 +20,14 @@
     font-size: 18px;
 }
 
+/*Search, cart, and sign in button*/
 .navbar-right {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
+/*Sign in button*/
 .navbar button {
     background: transparent;
     font-size: 16px;
@@ -38,6 +43,8 @@
     background-color: #fff4f2;
 }
 
+/*Active menu
+  If the menu item is clicked, the underline will shown below that*/
 .navbar .active {
     padding-bottom: 2px;
     border-bottom: 2px solid #49557e;
@@ -47,6 +54,7 @@
     cursor: pointer;
 }
 
+/*The dot in cart*/
 .navbar-search-icon {
     position: relative;
 }
