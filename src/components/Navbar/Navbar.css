@@ -47,9 +47,40 @@
 
 /*Active menu
   If the menu item is clicked, the underline will shown below that*/
-.navbar .active {
-    padding-bottom: 2px;
-    border-bottom: 2px solid #49557e;
+.navbar-menu .active {
+    padding-bottom: 5px;
+    border-bottom: 2px solid tomato;
+}
+
+.navbar-menu li {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+/*Animation when hover navbar menu*/
+.navbar-menu li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+    background-color: #49557e;
+
+    transform: translateX(-50%);
+    transition: width 0.25s ease-in-out;
+}
+
+.navbar-menu li:not(.active):hover::after{
+    width: 100%
+}
+
+/*Remove the hover animation if the menu item is clicked*/
+.navbar-menu li.active::after{
+    transition: 0s;
+    width: 0;
 }
 
 .navbar li {
