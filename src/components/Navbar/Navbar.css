@@ -32,7 +32,7 @@
     background: transparent;
     font-size: 16px;
     color: #49557e;
-    border: 1px solid tomato;
+    border: 1px solid #49557e;
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
@@ -42,6 +42,7 @@
 .navbar button:hover {
     background-color: tomato;
     color: white;
+    border: 1px solid tomato;
 }
 
 /*Active menu
