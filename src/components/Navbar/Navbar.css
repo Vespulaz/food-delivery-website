@@ -40,7 +40,8 @@
 }
 
 .navbar button:hover {
-    background-color: #fff4f2;
+    background-color: tomato;
+    color: white;
 }
 
 /*Active menu
