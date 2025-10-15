@@ -6,6 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,6 +22,11 @@ a {
 .app {
   width: 80%;
   margin: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 @keyframes fadeIn {
