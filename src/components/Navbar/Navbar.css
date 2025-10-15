@@ -1,14 +1,35 @@
-﻿.navbar {
+﻿/*Overall navigation bar*/
+.navbar {
     padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    background-color: white;
+}
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
+
+    width: 80%;
+
+    transition: width 0.3s ease;
 }
 
+.navbar.scrolled .navbar-container {
+    width: 85%;
+}
+
+/*Logo*/
 .navbar .logo {
     width: 150px;
 }
 
+/*Menu bar*/
 .navbar-menu {
     display: flex;
     list-style: none;
@@ -17,36 +38,74 @@
     font-size: 18px;
 }
 
+/*Search, cart, and sign in button*/
 .navbar-right {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
+/*Sign in button*/
 .navbar button {
     background: transparent;
     font-size: 16px;
     color: #49557e;
-    border: 1px solid tomato;
+    border: 1px solid #49557e;
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.25s ease-in-out;
 }
 
 .navbar button:hover {
-    background-color: #fff4f2;
+    background-color: tomato;
+    color: white;
+    border: 1px solid tomato;
 }
 
-.navbar .active {
-    padding-bottom: 2px;
-    border-bottom: 2px solid #49557e;
+/*Active menu
+  If the menu item is clicked, the underline will shown below that*/
+.navbar-menu .active {
+    padding-bottom: 5px;
+    border-bottom: 2px solid tomato;
+}
+
+.navbar-menu li {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+/*Animation when hover navbar menu*/
+.navbar-menu li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+    background-color: #49557e;
+
+    transform: translateX(-50%);
+    transition: width 0.25s ease-in-out;
+}
+
+.navbar-menu li:not(.active):hover::after{
+    width: 100%;
+}
+
+/*Remove the hover animation if the menu item is clicked*/
+.navbar-menu li.active::after{
+    transition: 0s;
+    width: 0;
 }
 
 .navbar li {
     cursor: pointer;
 }
 
+/*The dot in cart*/
 .navbar-search-icon {
     position: relative;
 }
@@ -59,4 +118,57 @@
     border-radius: 5px;
     top: -8px;
     right: -8px;
+}
+
+@media (max-width: 1050px) {
+    .navbar .logo {
+        width: 140px;
+    }
+
+    .navbar-menu {
+        gap: 20px;
+        font-size: 17px;
+    }
+
+    .navbar-right {
+        gap: 30px;
+    }
+
+    .navbar-right img {
+        width: 22px;
+    }
+
+    .navbar-right button {
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar .logo {
+        width: 120px;
+    }
+
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        gap: 20px;
+    }
+
+    .navbar-right img {
+        width: 20px;
+    }
+
+    .navbar-right button {
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+    .navbar-menu {
+        display: none;
+    }
 }
