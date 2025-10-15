@@ -26,8 +26,21 @@
     padding: 5px;
 }
 
+/*Cursor grab if the menu list is scrollable*/
+.explore-menu-list.is-scrollable {
+    cursor: grab;
+}
+
+.explore-menu-list.is-scrollable.active {
+    cursor: grabbing;
+}
+
 .explore-menu-list::-webkit-scrollbar {
     display: none;
+}
+
+.explore-menu-list-item {
+    user-select: none;
 }
 
 .explore-menu-list-item img {
