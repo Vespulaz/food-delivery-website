@@ -10,9 +10,13 @@ function Home() {
 
     return (
         <div>
-            <Header />
-            <ExploreMenu category={category} setCategory={setCategory} />
-            <FoodDisplay category={category} />
+            <div id="home">
+                <Header />
+            </div>
+            <div id="explore-menu">
+                <ExploreMenu category={category} setCategory={setCategory} />
+                <FoodDisplay category={category} />
+            </div>
         </div>
     );
 }
