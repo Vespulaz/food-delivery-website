@@ -9,16 +9,18 @@ import Footer from "./components/Footer/Footer.jsx";
 function App() {
   return (
       <>
+          <Navbar />
           <div className="app">
               {/*Navigation bar*/}
-              <Navbar />
               <Routes>
                   <Route path="/" element={<Home/>} />
                   <Route path="/cart" element={<Cart/>} />
                   <Route path="/order" element={<PlaceOrder/>} />
               </Routes>
           </div>
-          <Footer />
+          <div id="contact-us">
+              <Footer />
+          </div>
       </>
   )
 }
