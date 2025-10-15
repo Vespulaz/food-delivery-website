@@ -3,7 +3,7 @@ import './Navbar.css';
 import {assets} from "../../assets/frontend_assets/assets.js";
 import {Link} from "react-router-dom";
 
-function Navbar() {
+function Navbar({setShowLogin}) {
 
     // menu stores the currently active menu key.
     // setMenu updates that value when a user clicks a menu item
@@ -116,7 +116,7 @@ function Navbar() {
                         {/*This dot is shown if have any items in the cart*/}
                         <div className="dot"></div>
                     </div>
-                    <button>sign in</button>
+                    <button onClick={() => setShowLogin(true)}>sign in</button>
                 </div>
             </div>
         </div>
