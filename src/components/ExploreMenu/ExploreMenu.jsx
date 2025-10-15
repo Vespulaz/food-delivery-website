@@ -4,9 +4,9 @@ import {menu_list} from "../../assets/frontend_assets/assets.js";
 
 function ExploreMenu({category, setCategory}) {
     return (
-        <div className="explore-menu" id="explore-menu">
+        <div className="explore-menu">
             <h1>Explore our menu</h1>
-            <p className="explore-menu-text">Choose the menu below</p>
+            <p className="explore-menu-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid blanditiis distinctio dolore excepturi, harum libero porro provident repellendus reprehenderit sed tempore vero? Ab aliquam necessitatibus qui ratione sit, voluptate.</p>
             <div className="explore-menu-list">
                 {menu_list.map((item, index) => {
                     return (
