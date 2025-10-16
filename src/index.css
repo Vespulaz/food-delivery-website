@@ -29,6 +29,10 @@ html {
   scroll-padding-top: 90px;
 }
 
+.body-no-scroll {
+  overflow: hidden;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
