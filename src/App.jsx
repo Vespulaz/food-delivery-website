@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Navbar from "./components/Navbar/Navbar.jsx";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
@@ -10,6 +10,19 @@ import LoginPopup from "./components/LoginPopup/LoginPopup.jsx";
 function App() {
 
     const [showLogin, setShowLogin] = React.useState(false);
+
+    // Add body-no-scroll class when showLogin true
+    useEffect(() => {
+        if (showLogin) {
+            document.body.classList.add("body-no-scroll");
+        } else {
+            document.body.classList.remove("body-no-scroll");
+        }
+
+        return () => {
+            document.body.classList.remove("body-no-scroll");
+        }
+    }, [showLogin]);
 
   return (
       <>
