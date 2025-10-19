@@ -118,6 +118,7 @@
     border-radius: 5px;
     top: -8px;
     right: -8px;
+    animation: fadeIn 0.15s ease-in-out;
 }
 
 @media (max-width: 1050px) {

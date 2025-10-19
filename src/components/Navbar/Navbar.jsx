@@ -1,7 +1,8 @@
-﻿import React, {useEffect} from 'react';
+﻿import React, {useContext, useEffect} from 'react';
 import './Navbar.css';
 import {assets} from "../../assets/frontend_assets/assets.js";
 import {Link} from "react-router-dom";
+import {StoreContext} from "../../context/StoreContext.jsx";
 
 function Navbar({setShowLogin}) {
 
@@ -90,11 +91,13 @@ function Navbar({setShowLogin}) {
         }
     }
 
+    const {getTotalCartAmount} = useContext(StoreContext);
+
     return (
         <div className={`navbar ${isScroll ? "scrolled" : ""}`} id="home">
             <div className="navbar-container">
                 {/*Logo image*/}
-                <img src={assets.logo} alt="Logo" className="logo"/>
+                <Link to="/"><img src={assets.logo} alt="Logo" className="logo"/></Link>
 
                 {/*Menu*/}
                 <ul className="navbar-menu" ref={menuRef}>
@@ -112,9 +115,9 @@ function Navbar({setShowLogin}) {
                 <div className="navbar-right">
                     <img src={assets.search_icon} alt=""/>
                     <div className="navbar-search-icon">
-                        <img src={assets.basket_icon} alt=""/>
+                        <Link to="/cart"><img src={assets.basket_icon} alt=""/></Link>
                         {/*This dot is shown if have any items in the cart*/}
-                        <div className="dot"></div>
+                        <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
                     </div>
                     <button onClick={() => setShowLogin(true)}>sign in</button>
                 </div>
