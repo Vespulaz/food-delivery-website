@@ -7,7 +7,7 @@ export default function auth(req, res, next) {
     const header = (req.headers.authorization || "").trim();
     const [scheme, cred] = header.split(/\s+/);
     const token = (scheme && scheme.toLowerCase() === "bearer" && cred) ? cred
-                 : (req.cookies?.token || null); // nếu bạn có dùng cookie-parser
+      : (req.cookies?.token || null); // nếu bạn có dùng cookie-parser
 
     if (!token) {
       console.warn("Auth: missing token");
@@ -22,8 +22,8 @@ export default function auth(req, res, next) {
   } catch (err) {
     const msg =
       err?.name === "TokenExpiredError" ? "Token expired"
-    : err?.name === "JsonWebTokenError" ? "Invalid token"
-    : "Unauthorized";
+        : err?.name === "JsonWebTokenError" ? "Invalid token"
+          : "Unauthorized";
     console.warn("Auth error:", err?.name || err, "- url:", req.method, req.originalUrl);
     return res.status(401).json({ success: false, message: msg });
   }
