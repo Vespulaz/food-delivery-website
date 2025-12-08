@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 
 function App() {
 
-    const url = "http://localhost:4000";
+    const url = import.meta.env.VITE_API_BASE_URL;
 
     return (
         <div>
