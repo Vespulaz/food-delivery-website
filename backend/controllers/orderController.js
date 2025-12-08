@@ -2,10 +2,11 @@
 import Order from "../models/orderModel.js";
 import User from "../models/userModel.js";
 import Stripe from "stripe";
+import orderModel from "../models/orderModel.js";
 
 const stripeSecret = process.env.STRIPE_SECRET;
 const stripeClient = stripeSecret ? new Stripe(stripeSecret) : null;
-const frontendURL = process.env.FRONTEND_URL || "http://localhost:3000";
+const frontendURL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 // Tạo đơn và tạo Stripe Checkout session
 export const placeOrder = async (req, res) => {
@@ -115,3 +116,13 @@ export const listOrders = async (req, res) => {
     return res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
+export const updateStatus = async (req, res) => {
+  try {
+    await orderModel.findByIdAndUpdate(req.body.orderId,{status: req.body.status});
+    res.json({ success: true, message: "Status updated" });
+  } catch (error) {
+    console.error("Error updating status:", error);
+    res.json({ success: false, message: "Error" });
+  }
+}
