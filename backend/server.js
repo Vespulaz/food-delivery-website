@@ -15,8 +15,32 @@ import cookieParser from "cookie-parser";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+// Tạo danh sách các domain được phép gọi API (Whitelist)
+const whitelist = [
+  "http://localhost:5174",
+  "http://localhost:5173",
+  "https://food-delivery-frontend-opal.vercel.app/",
+  "https://food-delivery-admin-fawn.vercel.app/"
+];
+
+// Cấu hình chi tiết
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Cho phép các request không có origin (như Postman, Server-to-Server) hoặc nằm trong whitelist
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Can not access because of CORS Error'));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], // Các method được phép
+  credentials: true, // Cho phép gửi cookie/token nếu cần
+  allowedHeaders: ["Content-Type", "Authorization"] // Các header được phép
+};
 
 // log gọn mỗi request
 app.use((req, _res, next) => { console.log(req.method, req.url); next(); });
@@ -26,7 +50,7 @@ const uploadDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
 // parsers PHẢI trước routes
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
