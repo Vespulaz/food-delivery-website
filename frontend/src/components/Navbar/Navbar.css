@@ -1,12 +1,12 @@
-﻿/*Overall navigation bar*/
+/*Overall navigation bar*/
 .navbar {
     padding: 20px 0;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 10;
-
     background-color: white;
+    user-select: none;
 }
 
 .navbar-container {
@@ -123,6 +123,7 @@
 
 .navbar-profile {
     position: relative;
+    cursor: pointer;
 }
 
 .nav-profile-dropdown {
@@ -131,7 +132,7 @@
     right: 0;
     z-index: 1;
 }
-.navbar-profile:hover .nav-profile-dropdown {
+.navbar-profile.open .nav-profile-dropdown {
     display: flex;
     flex-direction: column;
     gap: 10px;
