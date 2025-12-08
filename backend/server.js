@@ -15,7 +15,6 @@ import cookieParser from "cookie-parser";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -23,8 +22,8 @@ const PORT = process.env.PORT || 4000;
 const whitelist = [
   "http://localhost:5174",
   "http://localhost:5173",
-  "https://food-delivery-frontend-opal.vercel.app/",
-  "https://food-delivery-admin-fawn.vercel.app/"
+  "https://food-delivery-frontend-opal.vercel.app",
+  "https://food-delivery-admin-fawn.vercel.app"
 ];
 
 // Cấu hình chi tiết
